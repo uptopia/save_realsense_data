@@ -24,6 +24,10 @@ from sensor_msgs.msg import PointCloud2, PointField
 import message_filters
 
 import cv2
+
+import sys
+if sys.version > '3': #ROS自帶的cv_bridge只支持python2，想要使用Python3需要自行編譯cv_bridge包
+    sys.path.insert(0, '/opt/installer/open_cv/cv_bridge/lib/python3/dist-packages/')
 from cv_bridge import CvBridge, CvBridgeError
 
 
@@ -34,7 +38,7 @@ def image_rgb_cb(data_rgb):
     bridge = CvBridge()
     try:
         #讀取RGB圖(dtype = np.uint8)
-        rgb_image = bridge.imgmsg_to_cv2(data_rgb, data_rgb.encoding)
+        rgb_image = bridge.imgmsg_to_cv2(data_rgb, "bgr8") #data_rgb.encoding) #
         # w, h, z = np.shape(rgb_image)
         # print("rgb_image w, h, z = {0}, {1}, {2}".format(w, h, z))
         # print("rgb_image.dtype", rgb_image.dtype)
@@ -55,6 +59,7 @@ def image_depth_cb(data_depth):
     try:
         #讀取深度圖(dtype = np.float32)
         depth_image = bridge.imgmsg_to_cv2(data_depth, data_depth.encoding)
+        # print('data_depth.encoding', data_depth.encoding)
         # w, h = np.shape(depth_image)
         # print("depth_image w, h = {0}, {1}".format(w, h))
         # print("depth_image.dtype", depth_image.dtype)
