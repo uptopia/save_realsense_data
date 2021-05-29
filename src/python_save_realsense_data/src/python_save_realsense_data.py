@@ -1,4 +1,6 @@
+#!/usr/bin/env python
 # -*- coding: utf-8 -*- #
+
 # =====================================
 #        Stream Realsense Data
 # (Depth, RGB,  Organized Point Cloud)
@@ -152,8 +154,11 @@ def DisplayImage():
     print("(rgb_image) w, h, z, dtype = {0}, {1}, {2}, {3}".format(w2, h2, z2, rgb_image.dtype))
 
     img_hstack = np.hstack([depth_3channel, cloud_image, rgb_image])
-    cv2.imshow('[TOP_深度]/camera/aligned_depth_to_color/image_raw; [MID_有序點雲RGB]/camera/depth_registered/points; [BTM_RGB]/camera/color/image_raw', img_hstack)
-    cv2.waitKey(1)    
+    img_hstack = cv2.resize(img_hstack, (h0, w0/3), interpolation=cv2.INTER_AREA)
+    cv2.imshow('[TOP_深度]/camera/aligned_depth_to_color/image_raw; \
+                [MID_有序點雲RGB]/camera/depth_registered/points; \
+                [BTM_RGB]/camera/color/image_raw', img_hstack)
+    cv2.waitKey(0)
 
 
 def timesync_cb(data_depth, data_cloud, data_rgb):
@@ -167,6 +172,8 @@ def timesync_cb(data_depth, data_cloud, data_rgb):
     DisplayImage()
 
 if __name__ == '__main__':
+    print("python executable:", sys.executable)
+    print("python path:", sys.path)
 
     rospy.init_node("get_organized_cloud")
 
