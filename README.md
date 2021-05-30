@@ -35,7 +35,7 @@ OR
 
 ![Python 2.7.17](https://img.shields.io/badge/python-2.7.17-green.svg)
 ![Python 3.6.9](https://img.shields.io/badge/python-3.6.9-green.svg) (TODO)
-# Show and Sav Realsense Data (Python, C++)
+# Show and Save Realsense Data (Python, C++)
 
 ## Dependencies
 * Install [realsense-ros](https://github.com/IntelRealSense/realsense-ros)
