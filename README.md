@@ -65,3 +65,7 @@ OR
 
 * 訂閱ROS Topic: `/camera/color/image_raw`<br>
 =>RGB圖 RGB image <br><br/>
+
+## TODO
+[]測試Python3.6.9 及 CvBridge
+[]CPP 增加TimeSynchronizer
