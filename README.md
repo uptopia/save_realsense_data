@@ -43,10 +43,11 @@ OR
 ## Software environment
 * Ubuntu 18.04
 * ROS Melodic
-* Python 3.6.9
+* Python 2.7.17
+* Python 3.6.9 (TODO)
 * opencv 4.5.1 cv2
 * cv_bridge (python2 不用)(python3 待測試)
-* ROS Melodic
+
 
 ## cpp_save_realsense_data
 * 訂閱ROS Topic: `/camera/depth_registered/points`<br>
