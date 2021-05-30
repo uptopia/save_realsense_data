@@ -67,7 +67,12 @@ OR
 =>RGB圖 RGB image <br><br/>
 
 ## TODO
+<<<<<<< HEAD
 - [ ] Python 增加TimeSynchronizer 
 - [ ] CPP 增加TimeSynchronizer
 - [ ] 測試Python3.6.9 及 CvBridge
 
+=======
+[]測試Python3.6.9 及 CvBridge
+[]CPP 增加TimeSynchronizer
+>>>>>>> refs/remotes/origin/main
